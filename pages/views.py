@@ -34,6 +34,10 @@ class PageUpdate(UpdateView):
         return reverse_lazy('pages:update', args=[self.object.id]) + "?ok"
 
 
+class PageDelete(DeleteView):
+    model = Page
+    success_url = reverse_lazy('pages:pages')
+
 # def page(request, page_id, page_slug):
 #     page = get_object_or_404(Page, id=page_id)
 #     return render(request, 'pages/page.html', {'page':page})
