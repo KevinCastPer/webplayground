@@ -1,5 +1,5 @@
 # from django.contrib.auth.forms import UserCreationForm
-from .forms import UserCreationFormWithEmail
+from .forms import UserCreationFormWithEmail, ProfileForm
 from django.views.generic import CreateView
 # from django.views.generic.base import TemplateView
 from django.views.generic.edit import UpdateView
@@ -34,8 +34,9 @@ class SignUpView(CreateView):
 
 @method_decorator(login_required, name="dispatch")
 class ProfileUpdate(UpdateView):
-    model = Profile
-    fields = ['avatar', 'bio', 'link']
+    # model = Profile # ya hemos creado forms.py cambio por form_class
+    form_class = ProfileForm
+    # fields = ['avatar', 'bio', 'link'] c# cambiado por forms.py
     success_url = reverse_lazy('profile')
     template_name = 'registration/profile_form.html'
 
