@@ -23,6 +23,7 @@ class StaffRequiredMixin(object):
 # Create your views here.
 class PageListView(ListView):
     model = Page
+    paginate_by = 3
 
 
 class PageDetailView(DetailView):
