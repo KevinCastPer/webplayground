@@ -32,6 +32,7 @@ class ThreadDetail(DetailView):
             raise Http404()
         return obj
 
+
 def add_message(request, pk):
     # print(request.GET)
     json_response = {'created': False}
